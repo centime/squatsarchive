@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Squats Archive : </title>
+
+        <meta charset="utf-8">
+
+        <script src="../static/js/lib/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <script src="../static/js/lib/underscore-min.js"></script>
+        <script src="../static/js/lib/handlebars.js"></script>
+        <script src="../static/js/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../static/js/lib/smartresize.js"></script>
+
+        <link rel="stylesheet" href="../static/js/lib/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+        <![endif]-->
+        <link rel="stylesheet" href="../static/css/city.css" />
+
+        <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+
+        <script src="settings.js"></script>
+        <script src="../static/js/city.js"></script>
+
+        <script id="current-list-template" type="text/x-handlebars-template">
+            <div class="current-list" style="display: table;">
+                <div class="heading" style="display: table-header-group;">
+                    <div class="list-cell">
+                        name
+                    </div>
+                    <div class="list-cell">
+                        address
+                    </div>
+                </div>
+                <div style="display: table-row-group;">
+                    {{#each places}}
+                        <div style="display: table-row;">
+                            {{#with this.properties}}
+                                <div class="list-cell">
+                                    <a href="#" class="view-squat" data-cartodbid="{{cartodb_id}}">
+                                        {{name_of_squat}}
+                                    </a>
+                                </div>
+                                <div class="list-cell">
+                                    {{address}}
+                                </div>
+                            {{/with}}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+
+        <script id="list-template" type="text/x-handlebars-template">
+            <div class="have-you-seen-list" style="display: table;">
+                <div class="heading" style="display: table-header-group;">
+                    <div class="list-cell">
+                        Nom
+                    </div>
+                    <div class="list-cell">
+                        Adresse
+                    </div>
+                </div>
+                <div style="display: table-row-group;">
+                    {{#each places}}
+                        <div style="display: table-row;">
+                            {{#with this.properties}}
+                                <div class="list-cell">
+                                    {{name_of_squat}}
+                                </div>
+                                <div class="list-cell">
+                                    {{address}}
+                                </div>
+                            {{/with}}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+
+        <script id="popup-template" type="text/x-handlebars-template">
+            <div class="place-popup-content">
+                {{#with place.properties}}
+                    <h2>{{name_of_squat}}</h2>
+
+                    <p>{{address}}</p>
+
+                    {{#if duration}}
+                        <p>duration: {{duration}}</p>
+                    {{/if}}
+
+                    {{#if ended}}
+                        <p>ended: {{ended}}</p>
+                    {{/if}}
+
+                    {{#if housing}}
+                        <p>housing: {{housing}}</p>
+                    {{/if}}
+
+                    {{#if legal_illegal}}
+                        <p>legal or illegal? {{legal_illegal}}</p>
+                    {{/if}}
+
+                    {{#if more_info}}
+                        <p>more info: {{urlize more_info}}</p>
+                    {{/if}}
+
+                    {{#if negotiations}}
+                        <p>negotiations: {{negotiations}}</p>
+                    {{/if}}
+
+                    {{#if occupied}}
+                        <p>occupied: {{occupied}}</p>
+                    {{/if}}
+
+                    {{#if organized_groups}}
+                        <p>organized groups: {{organized_groups}}</p>
+                    {{/if}}
+
+                    {{#if ownership}}
+                        <p>ownership: {{ownership}}</p>
+                    {{/if}}
+
+                    {{#if photos}}
+                        <p>photos: {{photos}}</p>
+                    {{/if}}
+
+                    {{#if political_network}}
+                        <p>political network: {{political_network}}</p>
+                    {{/if}}
+
+                    {{#if self_definition}}
+                        <p>self definition: {{self_definition}}</p>
+                    {{/if}}
+
+                    {{#if time_empty}}
+                        <p>time empty: {{time_empty}}</p>
+                    {{/if}}
+
+                    {{#if type_of_building}}
+                        <p>type of building: {{type_of_building}}</p>
+                    {{/if}}
+
+                    {{#if type_of_evicted}}
+                        <p>type of evicted: {{type_of_evicted}}</p>
+                    {{/if}}
+
+                    {{#if urban_rural}}
+                        <p>urban or rurals {{urban_rural}}</p>
+                    {{/if}}
+
+                    {{#if use_after_eviction}}
+                        <p>use after eviction: {{use_after_eviction}}</p>
+                    {{/if}}
+
+                {{/with}}
+            </div>
+        </script>
+    </head>
+
+    <body>
+        <map id="map"></map>
+        <header onclick="togglePanel()">
+            <h1 id="city-name" style="margin-top:6px;margin-bottom:6px;">ERROR</h1>
+            <p>
+                <a href="../">Squats Archive</a> est un projet de carte historique des squats s'étant fait expulser.
+            </p>
+            <p>
+                Les archives de chaque ville sont gérées par un collectif local, vous pouvez contacter celui-ci via : <span id="mail-contact" >ERROR</span>
+            </p>
+        </header>
+        <panel>
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#home" data-toggle="tab">Squats</a>
+                </li>
+                <li>
+                    <a href="#add-a-squat" data-toggle="tab">Ajouter un squat</a>
+                </li>
+                <li>
+                    <a href="#have-you-seen" data-toggle="tab">Avez vous vu ce squat?</a>
+                </li>
+                <li>
+                    <a href="#raw-data" data-toggle="tab">Data</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <p>
+                        <input id="current-list-filter-input" placeholder="Rechercher un squat..." type="text" name="filter" />
+                    </p>
+                    <div id="current-list-wrapper"></div>
+                </div>
+
+                <div class="tab-pane" id="add-a-squat">
+                    <p>
+                        Pour ajouter un squat, merci d'envoyer l'adresse et toute information supplémentaire que vous souhaitez partager (listées ci-dessous)
+                    </p>
+
+                    <p>
+                        Nous ne listons que les squats expulsés, afin
+                        de ne pas impacter les lieux actuellement occupés.
+                    </p>
+
+                    <p>
+                        Informations que nous voulons ajouter pour les squats de
+                        nos archives:
+
+                        <ul>
+                            <li>Nom du squat</li>
+                            <li>Adresse</li>
+                            <li>Pages web (lien vers des photos, articles...)</li>
+                            <li>Type de batiment (appartement, maison, immeuble, hangar..)</li>
+                            <li>Date d'ouverture</li>
+                            <li>Date d'expulsion</li>
+                            <li>Duree d'occupation</li>
+                            <li>Motifs d'expulsions</li>
+                            <li>Rendu du jugement</li>
+                            <li>Date d'expulsabilité</li>
+                            <li>Proprietaire (de l'epoque, actuel,..)</li>
+                            <li>Usage du lieu depuis l'expulsion (abandon, travaux,..)</li>
+                            <li>Presentation du lieu</li>
+                            <li>Activités sociales</li>
+                            <li>Activités culturelles</li>
+                            <li>Activités militantes</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="tab-pane" id="have-you-seen">
+                    <p>
+                        Nous avons quelques informations sur ces lieux qui
+                        ont été expulsés, mais il nous manque toujours leur
+                        adresse précise afin de les ajouter à la carte. Si
+                        vous connaissez l'histoire ou l'ancienne position
+                        de ces projets, merci de nous envoyer les informations.
+                    </p>
+                    <div id="have-you-seen-list-wrapper"></div>
+                </div>
+
+                <div class="tab-pane" id="raw-data">
+                    <p>
+                        Les données brutes sont <a id="raw-data-link" >disponibles au format csv</a> (ouvrable avec un tableur) :
+                    </p>
+                </div>
+            </div>
+        </panel>
+    </body>
+
+</html>

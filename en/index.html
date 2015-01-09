@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Squats Archive</title>
+
+        <meta charset="utf-8">
+        <script src="../static/js/lib/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <script src="../static/js/lib/underscore-min.js"></script>
+        <script src="../static/js/lib/handlebars.js"></script>
+        <script src="../static/js/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../static/js/lib/smartresize.js"></script>
+
+        <script src="../cities.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                for (var c in CITIES){
+                    $('#cities-list').append(
+                        $('<li/>').append($('<a/>',{href:CITIES[c], html:c}))
+                    )
+                }
+            });
+        </script>
+
+        <link rel="stylesheet" href="../static/js/lib/bootstrap/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" href="../static/css/main.css" />
+    </head>
+
+    <body style="margin:5px" background="../static/img/background.png">
+        <header>
+            <div>
+                <h1 style="display:inline">Squats Archive</h1>
+                <span style="position:absolute;right:20px;top:20px">
+                    <a href="../fr">fr</a>
+                    <a href="../en">en</a>
+                </span>
+            </div>
+            <div style="background-color: rgba(125,125,125,0.5);margin:20px;padding:20px;text-align:justify; text-justify: inter-word;">
+                <p>
+                    Squats Archives offers an archive of evicted squats, by city.
+                </p>
+                <p>
+                    The project aims firstly to offer the required data to speak up against those evictions, under the claim of emergency, for projects that never actually occur.
+                    We also want to honor all these places and the initiatives they carried. Finally, we hope that this tool may help to have an historical view of the squat culture.
+                </p>
+                <p>
+                    This project is collaborative and autonomous. Squats Archive will present many maps, each maintained by a local collective established in every of those cities. 
+                </p>
+                <p>
+                    This project owes everything to it's parent, the <a href="http://londonsquatsarchive.org/">London Squat Archive</a>    
+                </p>
+            </div>
+        </header>
+        <br>
+        <main class="row">
+            <div class="col">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home" data-toggle="tab">Cities</a>
+                    </li>
+                    <li>
+                        <a href="#add-a-city" data-toggle="tab">Add a city</a>
+                    </li>
+                    <li>
+                        <a href="#who" data-toggle="tab">Who are we ?</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <h3>
+                            <ul id="cities-list">                            
+                            </ul>
+                        </h3>
+                    </div>
+
+                    <div class="tab-pane" id="add-a-city">
+                        <h3>Form a local collective</h3>
+                            <p>
+                                friends
+                            </p>
+                        <h3>Create an according mail address</h3>
+                            <p>
+                                -city-squatsarchive@riseup.net
+                            </p>
+                        <h3>Create a cartodb account</h3>
+                            <p>
+                                <a href="http://cartodb.com/">CartoDB</a>
+                            </p>
+                            <p>
+                                free account, -city-squatsarchive, "create a new table", named "evicted_squats_-city-" import empty [TODO template file].
+                            </p>
+                        <h3>Send us the infos, so we add you</h3>
+                            <p>
+                                mail; city; CartoDB account name; table name
+                            </p>
+                            <p>
+                                send it to <a href="mailto:squatsarchive@riseup.net">squatsarchive@riseup.net</a>
+                        <h3>Manage your data via CartoDB</h3>
+                            <p>
+                                Bye bye, good luck !
+                            </p>
+                            <p>
+                                
+                            </p>
+
+                        <h3>BEWARE !</h3>
+                            <p>
+                                Everything is public here.
+                            </p>
+                            <p>
+                                Be cautious.
+                            </p>
+                    </div>
+
+                    <div class="tab-pane" id="who">
+                        Squatters !
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </body>
+</html>

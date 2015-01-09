@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Squats Archive</title>
+
+        <meta charset="utf-8">
+
+        <script src="../static/js/lib/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <script src="../static/js/lib/underscore-min.js"></script>
+        <script src="../static/js/lib/handlebars.js"></script>
+        <script src="../static/js/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../static/js/lib/smartresize.js"></script>
+
+        <script src="../cities.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                for (var c in CITIES){
+                    $('#cities-list').append(
+                        $('<li/>').append($('<a/>',{href:CITIES[c], html:c}))
+                    )
+                }
+            });
+        </script>
+
+        <link rel="stylesheet" href="../static/js/lib/bootstrap/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" href="../static/css/main.css" />
+    </head>
+
+    <body style="margin:5px" background="../static/img/background.png">
+        <header>
+            <div>
+                <h1 style="display:inline">Squats Archive</h1>
+                <span style="position:absolute;right:20px;top:20px">
+                    <a href="../fr">fr</a>
+                    <a href="../en">en</a>
+                </span>
+            </div>
+            <div style="background-color: rgba(125,125,125,0.5);margin:20px;padding:20px;text-align:justify; text-justify: inter-word;">
+                <p>
+                    Squats Archives propose une plateforme d'archive de squats expulsés, par ville. 
+                </p>
+                <p>
+                    Le projet a pour objectif principal de fournir les données nécessaire à la dénonciation de toutes ces expulsions de lieux occupés, pour motifs urgents, et dont les supposés projets ne voient jamais le jour.
+                    Nous visons ensuite à rendre hommage à ces lieux et aux iniatives qu'ils ont porté. Enfin, nous souhaitons que cet outil puisse servir à présenter la culture squat dans sa dimension historique.
+                </p>
+                <p>
+                    Ce projet est collaboratif et autonome. Squats Archive vise à présenter de nombreuses cartes qui seront chacune maintenues par des collectifs locaux établis dans chaque ville.
+                </p>
+                <p>
+                    Ce projet doit tout à son parent, the <a href="http://londonsquatsarchive.org/">London Squat Archive</a>    
+                </p>
+            </div>
+        </header>
+        <br>
+        <main class="row">
+            <div class="col">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home" data-toggle="tab">Villes</a>
+                    </li>
+                    <li>
+                        <a href="#add-a-city" data-toggle="tab">Ajouter une ville</a>
+                    </li>
+                    <li>
+                        <a href="#who" data-toggle="tab">Qui sommes nous ?</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <div id="current-list-wrapper">
+                            <h3>
+                                <ul id="cities-list">
+                                </ul>
+                            <h3>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="add-a-city">
+                        <h3>Rassembler un collectif pour votre ville</h3>
+                            <p>
+                                Un travail d'archive se fait sur la durée, pensez-y dès le début, et rassemblez un petit groupe bien motivé !
+                            </p>
+                        <h3>Créer une adresse mail</h3>
+                            <p>
+                                C'est par elle que des gens pourront vous envoyer des infos sur des squats à ajouter. C'est aussi par elle que l'on passera, nous, Squats Archive, pour échanger avec vous.
+                                On vous conseille d'aller en demander une à riseup.net, et de la prendre sur le format : -ville-squatsarchive@riseup.net
+                            </p>
+                        <h3>Créer un compte cartodb</h3>
+                            <p>
+                                Nous ne stockons pas les informations sur les squats des différentes villes. Nous utilisons pour cela <a href="http://cartodb.com/">CartoDB</a>, et c'est ce que vous pouvez faire aussi.
+                            </p>
+                            <p>
+                                Prenez un compte gratuit, du nom de -ville-squatsarchive, avec votre nouvelle adresse mail, puis allez dans "créer une nouvelle table", du nom de "evicted_squats_-ville-" et importez [TODO le fichier suivant] pour avoir votre base de données bien formattée.
+                            </p>
+                        <h3>Envoyez nous en mail avec vos infos, et on vous ajoute</h3>
+                            <p>
+                                Pour ajouter votre ville, et lier la page à votre base de données, on a besoin de : mail; ville; nom d'utilisateur CartoDB; nom de la table
+                            </p>
+                            <p>
+                                Envoyez tout ça à <a href="mailto:squatsarchive@riseup.net">squatsarchive@riseup.net</a>
+                        <h3>Gérez en toute autonomie vos données sur catrodb</h3>
+                            <p>
+                                Voilà, vous n'avez plus besoin de nous.
+                            </p>
+                            <p>
+                                Pour ajouter des squats dans votre ville, ça se passe depuis votre compte CartoDB, avec leur interface. Nous, on s'occupe juste d'aller chercher vos données et de les afficher proprement quand quelqu'un visite le site.
+                            </p>
+
+                        <h3>ATTENTION !</h3>
+                            <p>
+                                Si vous rajoutez des colones dans CartoDB, ce que vous y mettrez ne s'affichera pas. Par contre, n'y mettez rien de sensible pour autant, car cela restera publiquement accessible via les données brutes !
+                            </p>
+                            <p>
+                                Comme d'habitude, autogestion, soyez prudents.
+                            </p>
+                    </div>
+
+                    <div class="tab-pane" id="who">
+                        Des squatters !
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </body>
+
+</html>

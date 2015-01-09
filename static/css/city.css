@@ -1,0 +1,133 @@
+/*
+ * reset
+ */
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+    
+body {
+    background-color: white;
+    font-family: Helvetica;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    border-bottom: 1px solid white;
+    color: white;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #F04848 !important;
+    border-bottom: 1px dashed #F04848 !important;
+}
+
+
+/*
+ * content
+ */
+
+panel .tab-content {
+    max-height: 90%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+panel p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.have-you-seen-list,
+.current-list {
+    margin-top: 25px;
+}
+
+.have-you-seen-list .heading,
+.current-list .heading {
+    font-weight: bold;
+}
+
+#add-a-squat ul {
+    list-style: disc;
+    padding-left: 40px;
+}
+
+#current-list-filter-input {
+    border: 1px solid black;
+}
+
+.list-cell {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+/*
+ * leaflet
+ */
+
+.leaflet-popup-content .place-popup-content img.place-image {
+    max-height: 500px !important;
+    max-width: 300px !important;
+}
+
+.leaflet-popup-content .place-popup-content p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.leaflet-popup-content {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+
+/*
+ * Bootstrap
+ */
+
+.tab-pane {
+    padding: 20px;
+}
+
+
+body {padding: 0; margin: 0; height: 100%; width: 100%;}
+map { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 100% !important; 
+    width: 100%; 
+    z-index:-1;
+}
+header {
+    background-color: rgba(125,125,125,0.5);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 150px;
+    width:500px;
+    color:white;
+    padding-left: 20px;
+}
+panel {
+    background-color: rgba(125,125,125,0.5);
+    position: absolute;
+    top: 170px;
+    bottom : 20px;
+    right: 20px;
+    width: 500px;
+    color:white;
+    text-align: justify;
+    text-justify: inter-word;
+}
