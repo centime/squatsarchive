@@ -119,6 +119,7 @@ header {
     width:500px;
     color:white;
     padding-left: 20px;
+    overflow:auto;
 }
 panel {
     background-color: rgba(125,125,125,0.5);

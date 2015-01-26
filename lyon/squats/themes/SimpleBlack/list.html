@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{article_titre_page}{blog_nom}</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="generator" content="BlogoText" />
+	<meta name="robots" content="all" />
+	<meta name="author" content="{blog_auteur}" />
+	<meta name="description" content="{blog_description}" />
+	<meta name="keywords" content="{keywords}" />
+	<link type="text/css" rel="stylesheet" href="{style}/style.css" />
+	<link type="application/rss+xml" rel="alternate" title="RSS 2.0 - Articles" href="{rss}" />
+	<style type="text/css">
+	#email-adress { display: none!important; }
+	</style>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="top">
+<h1><a href="{racine_du_site}">{blog_nom}</a></h1>
+<h2>{blog_description}</h2>
+</div>
+
+<div id="sidebar">
+	<h3>Rechercher</h3>
+	{recherche}
+	<hr />
+	<h3>Calendrier</h3>
+	{calendrier}
+	<hr />
+	<h3>Tags</h3>
+	{categories_encart}
+</div>
+
+<div id="contenu">
+	{BOUCLE_posts}{/BOUCLE_posts}
+</div> <!-- einde #contenu -->
+
+{pagination}
+
+</div> <!-- einde #page -->
+
+<p id="footer">Publié avec <a href="http://lehollandaisvolant.net/blogotext/">BlogoText</a><span id="mobilelink"> - <a href="?m">version mobile/normale</a></span> - Thème <a href="http://blog.veggie.fr">SimpleBlack</a></p>
+
+<script type="text/javascript">
+/* Tag script found at : http://www.siteduzero.com/tutoriel-3-34703-insertion-de-balises-dans-une-zone-de-texte.html */
+function insertTag(startTag, endTag, tag, tagType) {
+	var field = tag.parentNode.parentNode.getElementsByTagName('fieldset')[0].getElementsByTagName('textarea')[0];
+	var scroll = field.scrollTop;
+	field.focus();
+
+	if (window.ActiveXObject) { // C'est IE
+		var textRange = document.selection.createRange();            
+		var currentSelection = textRange.text;
+
+		textRange.text = startTag + currentSelection + endTag;
+		textRange.moveStart("character", -endTag.length - currentSelection.length);
+		textRange.moveEnd("character", -endTag.length);
+		textRange.select();     
+	} else { // c'est pas IE.
+		var startSelection   = field.value.substring(0, field.selectionStart);
+		var currentSelection = field.value.substring(field.selectionStart, field.selectionEnd);
+		var endSelection     = field.value.substring(field.selectionEnd);
+		if (currentSelection == "") { currentSelection = "TEXTE"; }
+		field.value = startSelection + startTag + currentSelection + endTag + endSelection;
+		field.focus();
+		field.setSelectionRange(startSelection.length + startTag.length, startSelection.length + startTag.length + currentSelection.length);
+	}
+	field.scrollTop = scroll;
+}
+
+function reply(code) {
+	var field = document.getElementById('form-commentaire').getElementsByTagName('textarea')[0];
+	field.focus();
+	if (field.value !== '') {
+		field.value += '\n\n';
+	}
+	field.value += code;
+	field.scrollTop = 10000;
+	field.focus();
+}
+
+function resize(id, dht) {
+	var elem = document.getElementById(id);
+	var ht = elem.offsetHeight;
+	size = Number(ht)+Number(dht);
+	elem.style.height = size+"px";
+	return false;
+}
+
+</script>
+
+</body>
+</html>

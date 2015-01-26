@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="../static/css/main.css" />
     </head>
 
-    <body style="margin:5px" background="../static/img/background.png">
+    <body>
         <header>
             <div>
                 <h1 style="display:inline">Squats Archive</h1>
@@ -40,7 +40,7 @@
             </div>
             <div style="background-color: rgba(125,125,125,0.5);margin:20px;padding:20px;text-align:justify; text-justify: inter-word;">
                 <p>
-                    Squats Archives propose une plateforme d'archive de squats expulsés, par ville. 
+                    Squats Archive propose une plateforme d'archive de squats expulsés, par ville. 
                 </p>
                 <p>
                     Le projet a pour objectif principal de fournir les données nécessaire à la dénonciation de toutes ces expulsions de lieux occupés, pour motifs urgents, et dont les supposés projets ne voient jamais le jour.
@@ -50,7 +50,7 @@
                     Ce projet est collaboratif et autonome. Squats Archive vise à présenter de nombreuses cartes qui seront chacune maintenues par des collectifs locaux établis dans chaque ville.
                 </p>
                 <p>
-                    Ce projet doit tout à son parent, the <a href="http://londonsquatsarchive.org/">London Squat Archive</a>    
+                    Ce projet doit tout à son parent, the <a href="http://londonsquatsarchive.org/">London Squats Archive</a>    
                 </p>
             </div>
         </header>
@@ -58,15 +58,12 @@
         <main class="row">
             <div class="col">
                 <ul class="nav nav-tabs">
-                    <li class="active">
-                        <a href="#home" data-toggle="tab">Villes</a>
-                    </li>
-                    <li>
-                        <a href="#add-a-city" data-toggle="tab">Ajouter une ville</a>
-                    </li>
-                    <li>
-                        <a href="#who" data-toggle="tab">Qui sommes nous ?</a>
-                    </li>
+                    <li class="active"><a href="#home" data-toggle="tab">Villes</a></li>
+                    <li><a href="#add-a-city" data-toggle="tab">Ajouter une ville</a></li>
+                    <li><a href="#manage-a-city" data-toggle="tab">Gerer les archives d'une ville</a></li>
+                    <li><a href="#faq" data-toggle="tab">FAQ</a></li>
+                    <li><a href="#why" data-toggle="tab">Pourquoi archiver ?</a></li>
+                    <li><a href="#who" data-toggle="tab">Qui sommes nous ?</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -75,7 +72,7 @@
                             <h3>
                                 <ul id="cities-list">
                                 </ul>
-                            <h3>
+                            </h3>
                         </div>
                     </div>
 
@@ -118,7 +115,61 @@
                                 Comme d'habitude, autogestion, soyez prudents.
                             </p>
                     </div>
+                    <div class="tab-pane" id="manage-a-city">
+                        <h3>Chaque collectif décidera de son propre fonctionnement afin de garantir la fiabilité de ses infos et ne pas exposer son réseau, mais nous proposons :</h3>
+                        <p> 1. Aucune donnée personnelle, ou pouvant permettre d’identifier quelqu’un, ne sera publiée.</p>
 
+                        <p> 2. L’inclusion des squats expulsés se fera avec l’accord, et sur la base de la contribution par mail (EMAIL) des anciens habitants de ces lieux.</p>
+
+                        <p> 3. Avant la publication des données nous vérifierons que c’est le collectif du lieu en question qui les fourni, et non pas une seule personne.</p>
+
+                        <p> 4. Malgré ce principe de précaution, en cas de réclamation directe par mail, ou de visu, la suspension des données concernant le lieu en question sera immédiate.</p>
+
+                        <p> 5. Il sera préférable d’attendre une période de prescription suivant la date d’expulsion du lieu (par exemple : 6 mois par défaut) avant d’en publier les données.</p>
+
+                        <p> 6. Les squats affichés sur la carte pourront être définis par les anciens habitants suivant ces critères proposés : </p>
+                        - Nom du squat
+                        - Adresse
+                        - Présentation
+                        - Activités éventuelles (sociales, culturelles, politiques)
+                        - Page web du/des collectif(s)
+                        - Type de bâtiment
+                        - Date d’ouverture
+                        - Date de l’expulsion
+                        - Durée d’occupation
+                        - Motifs d’expulsion
+                        - Verdict/rendu du procès
+                        - Expulsable le
+                        - Propriétaire (si publique inclusion du nom, si privé anonymat)
+                        - Usage du lieu depuis l’expulsion
+                    </div>
+
+                    <div class="tab-pane" id="faq">
+                        <h3>Pourquoi que les squats expulsés ?</h3>
+                        <p>
+                            Parce que vie de squat.
+                        </p>
+
+                        <h3>Pourquoi pas de l'édition collaborative ?</h3>
+                        <p>
+                            cf 1)
+                        </p>
+                        
+                        <h3>Pourquoi pas plus d'info sur chaque lieu ?</h3>
+                        <p>
+                            
+                        </p>
+                        
+                        <h3>Pourquoi ?</h3>
+                        <p>
+                            
+                        </p>
+                    </div>
+                    
+                    <div class="tab-pane" id="why">
+                        [todo : argumentaire puissant]
+                    </div>      
+                                 
                     <div class="tab-pane" id="who">
                         Des squatters !
                     </div>

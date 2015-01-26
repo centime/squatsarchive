@@ -1,0 +1,344 @@
+/* GENERAL
+-------------------------------------------------------- */
+
+html, body{
+	margin: 0;
+	padding: 0;
+	color: #CCCCCC;
+	font-size: 12px;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	background: black;
+	word-wrap: break-word;
+}
+
+p {
+	margin-bottom: 15px;
+}
+
+h1 {
+	font-size: 34px;
+}
+
+a {
+	color: #bbbbbb;
+}
+
+a:visited {
+	color: white;
+}
+
+hr {
+	color: #222222;
+	background-color:black;
+	clear:left;
+}
+
+@media only screen and (min-device-width: 480px) {
+	#mobilelink {
+		display: none;
+	}
+}
+
+#email-adress {
+	display: none!important;
+}
+
+
+/* LAYOUT
+-------------------------------------------------------- */
+
+#top {
+	text-align: center;
+	height: 120px;
+	display: block;
+	color: #fff;
+	
+}
+
+#top h1 a {
+	font-family: "Trebuchet MS", Verdana, Arial, Sans-serif;
+	font-size: 36px;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+#top h2 {
+	margin:-20px;
+	padding:0;
+}
+
+#page {
+	width: 900px;
+	margin: 25px auto 0;
+	background: black;
+	padding: 20px;
+	border: 1px solid #333333;
+}
+
+#contenu {
+	display: block;
+	width: 600px;
+	padding: 0 15px 0 15px;
+}
+
+#sidebar {
+	display: block;
+	width: 220px;
+	margin-top: 15px;
+	padding: 15px;
+	border: 1px solid #333333;
+	background: black;
+	float: right;
+}
+
+
+/* POST
+-------------------------------------------------------- */
+
+#post {
+	margin: 0 100px 0 100px;
+}
+
+h1 {
+	letter-spacing: -1px;
+	font-size: 30px;
+}
+
+h3 {
+	display: block;
+	margin-bottom: 0;
+}
+
+/* POST BLOCS
+-------------------------------------------------------- */
+
+.news {
+	padding: 0 0 0 25px;
+	border-bottom: 1px solid #222222;
+	margin: 0 0 15px 0;
+	background: url("star.gif") no-repeat left 5px;
+}
+
+.news h2 a:visited {
+	color: #bbbbbb;
+}
+
+
+
+.news h3 {
+	font-size: 20px;
+}
+
+.chapo {
+	text-indent:2em;
+}
+
+/* COMMENT BLOCS
+-------------------------------------------------------- */
+
+.comment {
+	background: black;
+	border: 1px dashed #333333;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.comment h3 {
+	margin-top: 0;
+}
+
+/* FORM COMMENT
+-------------------------------------------------------- */
+
+#postcom {
+	padding: 20px;
+	background: black;
+	border-top: 1px solid #ddd;
+}
+
+#postcom p {
+	margin: 0;
+}
+
+#postcom label {
+	margin-top: 5px;
+}
+
+textarea.commentaire {
+	width: 555px;
+	height: 200px;
+}
+.infos input, textarea.commentaire {
+	border: 1px solid gray;
+}
+
+.formatbut input, .infos input {
+	display: inline;
+	min-width: 26px;
+}
+
+.formatbut .pm {
+	float: right;
+}
+
+.formatbut input[value="B"] { font-weight: bold; }
+.formatbut input[value="I"] { font-style: italic; }
+.formatbut input[value="U"] { text-decoration: underline; }
+.formatbut input[value="S"] { text-decoration: line-through; }
+
+#form-commentaire fieldset {
+	border: none;
+	margin:0;
+	padding:0;
+}
+
+#form-commentaire .infos {
+	text-align:right;
+	width: 430px;
+	margin: 10px auto;
+}
+#form-commentaire fieldset.infos input {
+	margin-top: 2px;
+}
+
+#form-commentaire .buttons {
+	margin-top: 15px;
+	text-align: center;
+}
+
+/* Boutons de formatage  */
+p.formatbut {
+	border: 1px solid #9999a3;
+	border-bottom: 0;
+	border-radius: 5px 5px 0 0;
+	width: 98%;
+	height: 30px;
+	line-height: 28px;
+	margin: 0; padding: 0 1%;
+	background: #cde6ff;
+	background: -webkit-linear-gradient(top, white, #e6e6e6);
+	background: -moz-linear-gradient(top, white, #e6e6e6);
+	background: -ms-linear-gradient(top, white, #e6e6e6);
+	background: -o-linear-gradient(top, white, #e6e6e6);
+	background: linear-gradient(top, white, #e6e6e6);
+}
+
+.formatbut button.pm {
+	margin-top: 3px;
+}
+
+.formatbut button {
+	padding: 0;
+	vertical-align: middle;
+	background: rgba(0, 0, 0, 0);
+	height: 24px; width: 24px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+.formatbut button:hover {
+	border-color: silver;
+}
+
+.formatbut button:active {
+	border-color: gray;
+	background-color: rgba(0, 0, 0, 0);
+	background: #cde6ff;
+	background: -webkit-linear-gradient(bottom, white, #d6d6d6);
+	background: -moz-linear-gradient(bottom, white, #d6d6d6);
+	background: -ms-linear-gradient(bottom, white, #d6d6d6);
+	background: -o-linear-gradient(bottom, white, #d6d6d6);
+	background: linear-gradient(bottom, white, #d6d6d6);
+}
+
+.formatbut button span {
+	display: inline-block;
+	width: 16px;
+	height: 24px;
+}
+
+.formatbut span.spacer {
+	width: 2px;
+	margin: 0 4px;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #fafafa
+}
+
+
+
+#pmm span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wDCxAJLii7ntMAAADSUExURQAAAOjo6P///7Ozs8HBwc7Ozt7e3paWlrCwsLS0tNLS0goKChwcHCUlJScnJyoqKi4uLjAwMDExMVhYWFxcXF9fX2BgYGRkZGZmZmlpaWpqam1tbXBwcHNzc3l5eXp6en19fX5+fouLi5KSkqmpqaurq66urr+/v8jIyMrKys/Pz9nZ2dvb29zc3N7e3t/f3+Dg4OHh4eLi4ubm5ufn5+np6erq6uvr6+/v7/Hx8fPz8/X19fb29vf39/j4+Pn5+fr6+vv7+/z8/P39/f7+/v///10CZUMAAAALdFJOUwAPD5CQkJDo6OjoP846XAAAAAFiS0dEPKdqYc8AAACXSURBVBgZXcExCsJAEEDRP7MTEWOjrZKAhXj/Q3gMISIKKlgJYmZ3ZaM2eQ9GBDVrM4V07kmoNg1/x0OvhIbkg0QTCLSLV0yDGC0+DMcFsaBCJGK8qQV4Rn/llWP0yF6leG+zY2T6ZUXhKglDue/4uiEYFXpNFKoYxoRp5kuZoFyoLQxsxhnDu3bOT+cIEqp1ppBTHzNjH7zvQDVxVU2JAAAAAElFTkSuQmCC"); }
+#pmp span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wDCxAJKbbfC3AAAADkUExURQAAAOjo6P///7Ozs8HBwc7Ozt7e3paWlrCwsLS0tNLS0goKChwcHCUlJTExMTg4ODs7O0JCQkNDQ0VFRU1NTU5OTlFRUVJSUlVVVVhYWFxcXF9fX2BgYGRkZGZmZmlpaWpqam1tbW5ubnBwcHNzc3l5eXp6en19fX5+fouLi5KSkqKioqmpqaurq66urr+/v8jIyMrKys/Pz9nZ2dvb29zc3N7e3t/f3+Dg4OHh4eLi4ubm5ufn5+np6erq6uvr6+/v7/Hx8fPz8/b29vf39/j4+Pr6+vv7+/z8/P39/f7+/v///0tL/g0AAAALdFJOUwAPD5CQkJDo6OjoP846XAAAAAFiS0dEQ2fQDWIAAACuSURBVBgZBcExSwMxGADQly+5Xh1FFAsdpAgFB///6GYnR0FwswgVFQcH28slvgcAIIlSth2kl1pbMtytAeyfp5DXWoXarLOwcZxmu515OtkoqjkRyWg2K47OEpH8/PVVVUzSQ+TRY233fVJ002qIg1WrkZoifG95d8OXpBjEZ7tqfEQoitGyc8FSGGW/m9yT68tTz2M8zZnxfFhk8mKIt0NPUh5uO0iv09wBAPwD49RAJmqvBOwAAAAASUVORK5CYII="); }
+
+#button01 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAALxJREFUeNpi/P//PwMlgImBQjDwBrDATWICm6UNxI041L4G4nogfgXi/Pv3D6sLrgLxNCBmhuIGIA4B4jVALAHETjhdgATeADErmheZoGJMxBjAiGRANxYXEgxEkAFsUNwPxOVAvAzKrwBiLkIGMCEZAAqwC0B8GcqXA2INrF4ApUhGRpDlDDJAzA4zDCqOLPYJxbmwpAxUxAmkrIB4Hp5onw/EM4H4G1DfR2wG8CAFIC7wH6sBQzcvAAQYAFMGMSibVtAlAAAAAElFTkSuQmCC"); }
+#button02 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJlJREFUeNpi/P//PwMlgImBQjDwBrBgmMgEN1MbiBvRpOv//ft3FUUEFIjImJGRERnrAPF6IO6BiaGrZyLCi6xAvJDcMLAA4j9AfJlcA/yBeCe5sWAExAJAfAI5vAjGAiwggaAIiNmBfGa8bkQPVSCwBeKHaNgdiMWhBqLGGrqzgLZzAyk+EBPNrr9A/AGo/ieK+qGfmQACDABdr1fBOdq53gAAAABJRU5ErkJggg=="); }
+#button03 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAALRJREFUeNpi/P//PwMlgImBQkCxASwopjExhQGpMCSheijdiCz279+/q3AeKAxgmJGREYSdgHgdlIaJ6SCLIevB5oXXUJe9RhK7gkUMZxgwAjEzlEYG2MRwGsCKRTErKQawYFHMQqwBn6G2qSCJGULFPmPYhpwSgdEIY6YCcTKa2rlAPBvEAEYjdgNAUYRMowOYWmQ9LGhq+IH4KoH8oQPEH3AZAAJGOMRB4C/eMBiQzAQQYABWeD2iSgCteAAAAABJRU5ErkJggg=="); }
+#button04 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANpJREFUeNpi/P//PwMlgImBQkCxASwopjHBzbMB4nQg5oTyrwKxNhAXAfGjf//+EXRBFhC/BOI0KAapYwZpxusCJPASquEdlD8FiHWwKWREjgUkL4gDcQ0QfwfiXqiBcIDsBXQD9hATcEADXOAckAEwzMjIiI4lgHgiEM8GYkmYOLIeXAZ4I2sA4vlQjGEASiDCDAGCFiA+B+RXgP3JyMgBpORgavDFAidQASi0RYBYEmQIVNNXINUDxEJA/AmI/2ANRKBNoITDB41CbOAHyACgHuwGDM3MBBBgANhbZ2CYxiPdAAAAAElFTkSuQmCC"); }
+
+#button09 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAe1BMVEUAAAACAwP///////////8LDRD///8NDxIXGR8OERQXGSAZGyIaHCMcHiYZHCD///////+tsbuFipKXnKh/hI0WGh8nKjU6QE9rcopCSlgXGiAkKTImLDUoKzcoLjg3QE05QlA6QFA/RldBRlhBSVpESl1OV2xZYHpcZH4A/W7TAAAAGnRSTlMAEENPWmBlcHCAgICQkJWds9DU2d7w8PX2+1wQp8QAAABoSURBVBgZtcEJEoIwEATAUeN6gS6w3kYGXWL+/0IrPMEqu4E/qWM87bCOscakGnP+vLeLSx4rFENqtEtnHLo0oHCfI/gLCO4oyCVw5QYrEoXxfpy1fN4eNBRi7PfBSJpgIqoCUVXBT76HeQdQXXlI0wAAAABJRU5ErkJggg=="); }
+#button10 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKFJREFUeNpi/P//PwMlgImBQjAMDGAABSIIMzMzw7AEEO8F4ngcfLgeEMbmgnggfgnEC3HwCXrBG4h3I0UvnA/C//79Q1HMCFMIchoUnIDS54A4C52PbggLjAESZGICO4gdKmQJpVH46AkP2QvMQEP4gfRaIOYF4nVAvhSIRuILIluK4gVGRkaQH3iAmAvExRFp34H4M1DPHwwDRnBSBggwAOBZUhm1ZXdkAAAAAElFTkSuQmCC"); }
+#button12 span { background: no-repeat 0 3px url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANZJREFUeNrUk70KwjAUhRMpgoK6NZa+hE8jpbiUDr6GvkRBcOjq4tjJ3ScSQYV4IseSxoYOmQx8tPfv9N5wK7XWIuSMROAJFhBmBCmlyxpUll3R18n7jN8jkIEDiC1fTF82JJCDI1A9XSnGcp/ABtSeYlukZm5HYAUufIoB2ly3gwKcQGJs9zAnYU7hu4MSnE1ij0DCWPlzB85XtqCBmVr1qfEx1lkBWyACM6DAHlzBHCz4vgNL2lG7Q98R6JyAKTf0CR6mMcbGpgbcwQ28WoH//pneAgwAE6VdVO+LqWsAAAAASUVORK5CYII="); }
+
+/* CALENDAR
+-------------------------------------------------------- */
+
+#calendrier {
+	display: block;
+	float: left;
+	width: 220px;
+	border: 1px solid #333333;
+	margin-bottom: 10px;
+}
+
+#calendrier caption {
+	background: black;
+	color: #666;
+	padding: 4px;
+}
+
+#calendrier caption a {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#calendrier td {
+	font-size: 12px;
+	color: #555;
+	text-align: center;
+	background: black;
+	width: 30px;
+	line-height: 2em;
+}
+
+#calendrier td a{
+	display: block;
+	text-decoration: none;
+	color: #aaaaaa;
+	background: #333333;
+	font-weight: bold;
+}
+
+#calendrier td a:hover {
+	background: #666666;
+	color: #fff;
+}
+
+#calendrier td.active a {
+	color:#fff;
+	background: #0066CC;
+}
+
+/* OTHERS
+-------------------------------------------------------- */
+
+#footer {
+	text-align: center;
+	color: #999;
+}
+
+.pagination {
+	text-align: center;
+}
+
