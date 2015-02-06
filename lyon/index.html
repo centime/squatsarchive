@@ -41,11 +41,11 @@
                             {{#with this.properties}}
                                 <div class="list-cell">
                                     <a href="#" class="view-squat" data-cartodbid="{{cartodb_id}}">
-                                        {{name_of_squat}}
+                                        {{_01_name_of_squat}}
                                     </a>
                                 </div>
                                 <div class="list-cell">
-                                    {{address}}
+                                    {{_02_address}}
                                 </div>
                             {{/with}}
                         </div>
@@ -69,10 +69,10 @@
                         <div style="display: table-row;">
                             {{#with this.properties}}
                                 <div class="list-cell">
-                                    {{name_of_squat}}
+                                    {{_01_name_of_squat}}
                                 </div>
                                 <div class="list-cell">
-                                    {{address}}
+                                    {{_02_address}}
                                 </div>
                             {{/with}}
                         </div>
@@ -85,50 +85,53 @@
             <div class="place-popup-content">
                 
                 {{#with place.properties}}
-                    <h2>{{name_of_squat}}</h2>
+                    <h2>{{_01_name_of_squat}}</h2>
 
-                    <p>{{address}}</p>
-                    {{#if presentation }}
-                        <p>Presentation du lieu : {{ presentation }}</p>
+                    <p>{{_02_address}}</p>
+                    {{#if _03_presentation }}
+                        <p>Presentation du lieu : {{ _03_presentation }}</p>
                     {{/if}}
-                    {{#if social_activities }}
-                        <p>Activités sociales : {{ social_activities }}</p>
+                    {{#if _030_photo }}
+                        <p><img src="{{ _030_photo }}" style="width:280px"></img></p>
                     {{/if}}
-                    {{#if cultural_activities }}
-                        <p>Activités culturelles : {{ cultural_activities }}</p>
+                    {{#if _04_social_activities }}
+                        <p>Activités sociales : {{ _04_social_activities }}</p>
                     {{/if}}
-                    {{#if political_activities }}
-                        <p>Activités militantes : {{ political_activities }}</p>
+                    {{#if _05_cultural_activities }}
+                        <p>Activités culturelles : {{ _05_cultural_activities }}</p>
                     {{/if}}
-                    {{#if web_page }}
-                        <p>Page web : <a href="{{ web_page }}" target="_blank">{{ web_page }}</a></p>
+                    {{#if _06_political_activities }}
+                        <p>Activités militantes : {{ _06_political_activities }}</p>
                     {{/if}}
-                    {{#if building_type }}
-                        <p>Type de batiment : {{ building_type }}</p>
+                    {{#if _07_web_page }}
+                        <p><a href="{{ _07_web_page }}" target="_blank">Page web</a></p>
                     {{/if}}
-                    {{#if opening_date }}
-                        <p>Date d ouverture : {{ opening_date }}</p>
+                    {{#if _08_building_type }}
+                        <p>Type de batiment : {{ _08_building_type }}</p>
                     {{/if}}
-                    {{#if eviction_date }}
-                        <p>Expulsion : {{ eviction_date }}</p>
+                    {{#if _formated_opening_date }}
+                        <p>Date d ouverture : {{ _formated_opening_date }}</p>
                     {{/if}}
-                    {{#if occupation_duration }}
-                        <p>Duree d occupation : {{ occupation_duration }}</p>
+                    {{#if _formated_eviction_date }}
+                        <p>Expulsion : {{ _formated_eviction_date }}</p>
                     {{/if}}
-                    {{#if eviction_motives }}
-                        <p>Motifs d expulsions : {{ eviction_motives }}</p>
+                    {{#if _11_occupation_duration }}
+                        <p>Duree d occupation : {{ _11_occupation_duration }}</p>
                     {{/if}}
-                    {{#if trial_verdict }}
-                        <p>Rendu du jugement : {{ trial_verdict }}</p>
+                    {{#if _12_eviction_motives }}
+                        <p>Motifs d expulsions : {{ _12_eviction_motives }}</p>
                     {{/if}}
-                    {{#if evictability_date }}
-                        <p>Date d expulsabilité : {{ evictability_date }}</p>
+                    {{#if _13_trial_verdict }}
+                        <p>Rendu du jugement : {{ _13_trial_verdict }}</p>
                     {{/if}}
-                    {{#if proprietary }}
-                        <p>Proprietaire : {{ proprietary }}</p>
+                    {{#if _formated_evictability_date }}
+                        <p>Date d expulsabilité : {{ _formated_evictability_date }}</p>
                     {{/if}}
-                    {{#if use_since_eviction }}
-                        <p>Usage du lieu depuis l expulsion : {{ use_since_eviction }}</p>
+                    {{#if _15_ownership }}
+                        <p>Proprietaire : {{ _15_ownership }}</p>
+                    {{/if}}
+                    {{#if _16_use_since_eviction }}
+                        <p>Usage du lieu depuis l expulsion : {{ _16_use_since_eviction }}</p>
                     {{/if}}
                 {{/with}}
             </div>

@@ -5,6 +5,7 @@
         <title>Squats Archive</title>
 
         <meta charset="utf-8">
+
         <script src="../static/js/lib/jquery.min.js"></script>
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
         <script src="../static/js/lib/underscore-min.js"></script>
@@ -12,23 +13,16 @@
         <script src="../static/js/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="../static/js/lib/smartresize.js"></script>
 
-        <script src="../cities.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                for (var c in CITIES){
-                    $('#cities-list').append(
-                        $('<li/>').append($('<a/>',{href:CITIES[c], html:c}))
-                    )
-                }
-            });
-        </script>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+        <script src="../static/js/home.js"></script>
 
         <link rel="stylesheet" href="../static/js/lib/bootstrap/css/bootstrap.min.css" />
-
         <link rel="stylesheet" href="../static/css/main.css" />
     </head>
 
     <body>
+        <map id="map"></map>
         <header>
             <div>
                 <h1 style="display:inline">Squats Archive</h1>
@@ -37,97 +31,153 @@
                     <a href="../en">en</a>
                 </span>
             </div>
-            <div style="background-color: rgba(125,125,125,0.5);margin:20px;padding:20px;text-align:justify; text-justify: inter-word;">
-                <p>
-                    Squats Archive offers an archive of evicted squats, by city.
-                </p>
-                <p>
-                    The project aims firstly to offer the required data to speak up against those evictions, under the claim of emergency, for projects that never actually occur.
-                    We also want to honor all these places and the initiatives they carried. Finally, we hope that this tool may help to have an historical view of the squat culture.
-                </p>
-                <p>
-                    This project is collaborative and autonomous. Squats Archive will present many maps, each maintained by a local collective established in every of those cities. 
-                </p>
-                <p>
-                    This project owes everything to it's parent, the <a href="http://londonsquatsarchive.org/">London Squats Archive</a>    
-                </p>
-            </div>
+            <ul id="tabs" class="nav nav-tabs">
+                <li class="active"><a href="#europe" data-toggle="tab">Europe</a></li>
+                <li><a href="#why" data-toggle="tab">Why an archive ?</a></li>
+                <li><a href="#faq" data-toggle="tab">FAQ</a></li>
+                <li><a href="#who" data-toggle="tab">Who are we ?</a></li>
+                <li><a href="#add-a-city" data-toggle="tab">Add a city</a></li>
+                <li><a href="#manage-a-city" data-toggle="tab">Manage a city's archive</a></li>
+            </ul>
         </header>
-        <br>
-        <main class="row">
-            <div class="col">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#home" data-toggle="tab">Cities</a></li>
-                    <li><a href="#add-a-city" data-toggle="tab">Add a city</a></li>
-                    <li><a href="#manage-a-city" data-toggle="tab">Manage a city's archives</a></li>
-                    <li><a href="#faq" data-toggle="tab">FAQ</a></li>
-                    <li><a href="#why" data-toggle="tab">Why an archive ?</a></li>
-                    <li><a href="#who" data-toggle="tab">Who are we ?</a></li>
-                </ul>
-
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                        <h3>
-                            <ul id="cities-list">                            
-                            </ul>
-                        </h3>
+        <main class="tab-content">
+                    <div class="tab-pane active uncover" id="europe">
                     </div>
 
-                    <div class="tab-pane" id="add-a-city">
-                        <h3>Form a local collective</h3>
+                    <div class="tab-pane cover" id="why">
+                        <p>
+                            Squats Archive is an online archive of squats evicted by city.
+                        </p>
+                        <p>
+                            The project’s principal aim is to provide the necessary data and evidence to denounce evictions of occupied places for motives qualified as “urgent”, and whose supposed projects never come about. We also aim to ... to these places and the initatives that they harbored (?). Finally, we hope this tool will serve to present squatting culture in its historical dimension.
+                        </p>
+                        <p>
+                            This project is collaborative and autonomous. Squats Archive aims to present numerous maps, all of which will be managed by local collectives established in each city.
+                        </p>
+                        <p>
+                            This project owes its existence to the London Squats Archive.
+                        </p>
+                    </div>      
+                    
+                    <div class="tab-pane cover" id="faq">
+                        <ol>
+                            <li>
+                                <h3>What is Squats Archive ?</h3>
+                                <p>
+                                    Please see the presentation.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>What purpose does Squat Archive serve?</h3>
+                                <p>
+                                    Please see the presentation.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>Why are “active” squats not listed?</h3>
+                                <p>
+                                    The squats are living spaces and we do not wish to expose them. Our objective is to constitute an archive that takes into account the past, and not the present.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>Who deals with the inclusion of squats online?</h3>
+                                <p>
+                                    The local collective for that corresponding city includes squats online according to their own criterion. The collective is responsible for the data included on their map.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>How can I add a squat?</h3>
+                                <p>
+                                    Please send the information you possess to your city’s collective – their e-mail address can be found on the map.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>Why is a collective in charge of putting the squats online?</h3>
+                                <p>
+                                    It is important for squats, and squatters to be protected. The collective holds the entire responsibility of what it chooses to publish.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>How did you choose the categories?</h3>
+                                <p>
+                                    Considering Squats Archive’s aim, we want to put forward information concerning legal procedures, and activities that took place in the squats. However, the number of categories is deliberately limited in order to protect the squats and their inhabitants.
+                                </p>
+                            </li>
+                            <li>
+                                <h3>How do you open a squat?</h3>
+                                <p>
+                                    Please consult the <a href="https://infokiosques.net/spip.php?article41">Squat from A to Z</a>.
+                                </p>
+                            </li>
+                        </ol>
+
+                    </div>
+                    
+                    <div class="tab-pane cover" id="who">
+                        <h3>« Rien à déclarer. »*</h3>
+                        <p>
+                            *Un collectif de squatters militants ayant fait l’expérience, et ayant été témoins, de nombreuses expulsions (tant “légales” que “illégales”) pour motifs “urgents”. Parmi ces motifs figurent « l’urgence » pour le « début de travaux » qui ne sont jamais entamés, ou pour « des projets » qui ne verront jamais le jour mais qui permettent le monopole des institutions publiques, entre autres, sur des lieux vides, pendant qu’aucune solution concrète officielle n’est apportée aux victimes de problèmes de logement. Au-delà du squat dit « d’habitation » des membres de notre collectif ont respectivement été à l’origine, ou ont fait partie, d’initiatives sociales, culturelles et/ou politiques, au sein de leurs lieux. 
+                        </p>
+                    </div>
+
+                    <div class="tab-pane cover" id="add-a-city">
+                        <h3>Set up a collective for your city :</h3>
                             <p>
-                                friends
+                                Archive work has to be undertaken over a period of time, so think about it from the start, and gather a group of motivated people together!
                             </p>
-                        <h3>Create an according mail address</h3>
+                        <h3>Creating an e-mail address:</h3>
                             <p>
-                                -city-squatsarchive@riseup.net
+                                It’s via your e-mail that people will be able to send you info on squats that you can add. It’s also via your e-mail that we (Squats Archive) will be getting in touch with you. We suggest that you request an e-mail address from riseup.net, and create it according to the following format:
+
+                                *yourcity*squatsarchive@riseup.net (e.g. lyonsquatsarchive@riseup.net)
                             </p>
-                        <h3>Create a cartodb account</h3>
+                        <h3>Creating a CartoDB account :</h3>
                             <p>
-                                <a href="http://cartodb.com/">CartoDB</a>
+                                We do not stock information squats in different cities. Instead, we use <a href="http://cartodb.com/">CartoDB</a>, which is something you can also do. Create a free acount (*yourcity*squatsarchive) with your new e-mail address, and then go to “create a new table” that you can name “evicted_squats_*yourcity*”, and import [...?] so that your database is nicely formatted. 
                             </p>
+                        <h3>Send us an e-mail with your info and we’ll add you:</h3>
                             <p>
-                                free account, -city-squatsarchive, "create a new table", named "evicted_squats_-city-" import empty [TODO template file].
+                                To add your city, and to link the page to your database, we need some of the following information from you: e-mail address; city; CartoDB username; name of the table. Send us all that on: <a href="mailto:squatsarchive@riseup.net">squatsarchive@riseup.net</a>.
                             </p>
-                        <h3>Send us the infos, so we add you</h3>
+
+                        <h3>Manage your data autonomously on CartoDB:</h3>
                             <p>
-                                mail; city; CartoDB account name; table name
-                            </p>
-                            <p>
-                                send it to <a href="mailto:squatsarchive@riseup.net">squatsarchive@riseup.net</a>
-                        <h3>Manage your data via CartoDB</h3>
-                            <p>
-                                Bye bye, good luck !
-                            </p>
-                            <p>
-                                
+                                There you go, you no longer need us! You can now add squats in your city to your map via your CartoDB account by using their interface. We’ll take care of collecting that data and make sure it’s displayed nice and neatly!
                             </p>
 
                         <h3>BEWARE !</h3>
                             <p>
-                                Everything is public here.
-                            </p>
-                            <p>
-                                Be cautious.
+                                If you add columns (for categories) in CartoDB then what you include in them will not be displayed. We suggest that you do not include sensitive information in your database, as all information will be publicly accessible via the raw data! As usual: do-it-yourself! And be careful !
                             </p>
                     </div>
-                    <div class="tab-pane" id="manage-a-city">
-                        Do as you feel, but here is how we decided to do to guarantee fiability of data and safety for the network.
-                    </div>
 
-                    <div class="tab-pane" id="faq">
-                    </div>
+                    <div class="tab-pane cover" id="manage-a-city">
+                        <h3>Each collective will decide it functions in order to guarantee the accuracy of its information, and to avoid exposing its network. These might be some helpful guidelines to follow:</h3>
 
-                    <div class="tab-pane" id="why">
-                        [todo : powerful argumentation]
-                    </div>      
-
-                    <div class="tab-pane" id="who">
-                        Squatters !
+ 
+                        <ol>
+                            <li>
+                                No personal information, or any information that may lead to someone’s identification, will be published.
+                            </li>
+                            <li>
+                                The inclusion of evicted squats on the map will take place with the consent of, and on the basis of an e-mail contribution from, previous inhabitants.
+                            </li>
+                            <li>
+                                Before the data is published we will check to ensure that it is the squat’s collective/inhabitants as a group who are contributing the information, and not a single person.
+                            </li>
+                            <li>
+                                Despite these precautions, any complaint made via e-mail, or in person, will lead to the immediate deletion of data concerning the squat in question.
+                            </li>
+                            <li>
+                                It will be prefereable to wait a delay of 6 months (advised period) following the eviction of a squat before publishing its data.
+                            </li>
+                            <li>
+                                The squats displated on the map can be defined – by previous inhabitants – according to, but not limited to, the following criterion: name of squat; address; presentation; activities (social, cultural, political); web page; type of building; date opened; date evicted; duration; reasons for the eviction; trial verdict; date of evictability; ownership (if a public owner you may include the owner’s name, if private, please respect anonymity); use of the building since the eviction.
+                            </li>
+                        </ol>
                     </div>
-                </div>
-            </div>
         </main>
 
     </body>
+
 </html>

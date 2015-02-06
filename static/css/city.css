@@ -132,3 +132,12 @@ panel {
     text-align: justify;
     text-justify: inter-word;
 }
+
+.leaflet-popup-content-wrapper{
+    background-color: rgba(125, 125, 125, 0.5);
+    color: white;
+}
+
+.leaflet-popup-close-button{
+    border-bottom:none;
+}

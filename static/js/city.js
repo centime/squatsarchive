@@ -1,4 +1,3 @@
-
 (function (window, $, undefined) {
     "use strict";
 
@@ -60,6 +59,11 @@
                 L.geoJson(data, {
 
                     onEachFeature: function (featureData, layer) {
+                        // format dates to string
+                        featureData.properties._formated_evictability_date = featureData.properties._14_evictability_date ? featureData.properties._14_evictability_date.toString().split('T')[0] : undefined;
+                        featureData.properties._formated_eviction_date = featureData.properties._10_eviction_date ? featureData.properties._10_eviction_date.toString().split('T')[0] : undefined;
+                        featureData.properties._formated_opening_date = featureData.properties._09_opening_date ? featureData.properties._09_opening_date.toString().split('T')[0] : undefined;
+
                         // precompile
                         var source = $('#popup-template').html();
                         var template = Handlebars.compile(source);
@@ -159,8 +163,7 @@ function getQueryUrl(query) {
 function addHaveYouSeenList() {
     var query = 'SELECT * ' +
         'FROM '+CARTODB_DB+' ' +
-        'WHERE needs_more_info = true ' +
-        'ORDER BY name_of_squat';
+        'ORDER BY _01_name_of_squat';
 
     $.getJSON(getQueryUrl(query), function (data) {
         var source = $('#list-template').html();
@@ -188,9 +191,7 @@ function showCurrentList(list) {
 function addCurrentList() {
     var query = 'SELECT * ' +
         'FROM '+CARTODB_DB+' ' +
-        'WHERE (needs_more_info = false OR needs_more_info IS NULL) ' +
-            'AND the_geom IS NOT NULL ' +
-        'ORDER BY name_of_squat';
+        'ORDER BY _01_name_of_squat';
 
     var places = [];
     $.getJSON(getQueryUrl(query), function (data) {
@@ -204,7 +205,7 @@ function addCurrentList() {
         if (filterText && filterText !== '') {
             filteredPlaces = _.filter(places, function (place) {
                 try {
-                    return place.properties.name_of_squat.toLowerCase().indexOf(filterText) >= 0;
+                    return place.properties._01_name_of_squat.toLowerCase().indexOf(filterText) >= 0;
                 }
                 catch (e) {
                     return false;
@@ -261,6 +262,6 @@ function initCity(){
     // Page title
     $('title').text( $('title').text()+CITY );
     // Raw data
-    $('#raw-data-link').attr('href','http://'+CARTODB_USER+'.cartodb.com/api/v2/sql?format=csv&q=SELECT%20*%20FROM%20'+CARTODB_DB+'%20ORDER%20BY%20name_of_squat');
+    $('#raw-data-link').attr('href','http://'+CARTODB_USER+'.cartodb.com/api/v2/sql?format=csv&q=SELECT%20*%20FROM%20'+CARTODB_DB+'%20ORDER%20BY%20_01_name_of_squat');
     //
 }
