@@ -44,7 +44,8 @@
 
             instance.map = L.map('map', {
                 center: instance.options.center,
-                zoom: instance.options.zoom
+                zoom: instance.options.zoom,
+                zoomControl: false
             });
 
             // add tile layer

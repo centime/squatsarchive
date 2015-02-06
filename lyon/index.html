@@ -12,6 +12,7 @@
         <script src="../static/js/lib/handlebars.js"></script>
         <script src="../static/js/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="../static/js/lib/smartresize.js"></script>
+        <script src="../static/js/lib/marked.min.js"></script>
 
         <link rel="stylesheet" href="../static/js/lib/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
@@ -24,6 +25,7 @@
 
         <script src="settings.js"></script>
         <script src="../static/js/city.js"></script>
+        <script src="../static/js/media-page.js"></script>
 
         <script id="current-list-template" type="text/x-handlebars-template">
             <div class="current-list" style="display: table;">
@@ -140,16 +142,16 @@
 
     <body>
         <map id="map"></map>
-        <header onclick="togglePanel()">
-            <h1 id="city-name" style="margin-top:6px;margin-bottom:6px;">[City - please enable javascrip]</h1>
-            <p>
-                <a href="../">Squats Archive</a> est un projet de carte historique des squats s'étant fait expulser.
-            </p>
-            <p>
-                Les archives de chaque ville sont gérées par un collectif local, vous pouvez contacter celui-ci via : <span id="mail-contact" >[Mail - please enable javascrip]</span>
-            </p>
-        </header>
         <panel>
+            <div id="header">
+                <h1 id="city-name" style="margin-top:6px;margin-bottom:6px;">[City - please enable javascrip]</h1>
+                <p>
+                    <a href="../">Squats Archive</a> est un projet de carte historique des squats s'étant fait expulser.
+                </p>
+                <p>
+                    Les archives de chaque ville sont gérées par un collectif local, vous pouvez contacter celui-ci via : <span id="mail-contact" >[Mail - please enable javascrip]</span>
+                </p>
+            </div>
             <ul class="nav nav-tabs">
                 <li class="active">
                     <a href="#home" data-toggle="tab">Squats</a>
@@ -202,26 +204,6 @@
                             <li>Activités sociales</li>
                             <li>Activités culturelles</li>
                             <li>Activités militantes</li>
-                            <!-- 
-name_of_squat
-address
-presentation
-social_activities
-cultural_activities
-political_activities
-web_page
-building_type
-opening_date
-eviction_date
-occupation_duration
-eviction_motives
-trial_verdict
-evictability_date
-proprietary
-use_since_eviction
-needs_precise_address
-needs_more_info
- --> 
                         </ul>
                     </p>
                 </div>
@@ -232,6 +214,13 @@ needs_more_info
                 </div>
             </div>
         </panel>
+        <media>
+            <div>
+                Media page : <span id="media-squat"></span>
+                <a href="#" id="close">return to the map</a>
+            </div>
+            <div id="page-content"></div>
+        </media>
     </body>
 
 </html>
