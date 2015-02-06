@@ -29,8 +29,8 @@ a {
 }
 
 a:hover {
-    color: #F04848 !important;
-    border-bottom: 1px dashed #F04848 !important;
+    color: #F04848 ;
+    border-bottom: 1px dashed #F04848;
 }
 
 map { 
@@ -51,4 +51,30 @@ main{
 }
 .cover {
     overflow: auto;
+	background-color : rgba(125,125,125,0.5);
+	text-align: justify;
+    text-justify: inter-word;
+	padding : 15px;
+	margin : 30px;
+	float : right;
+	border-radius: 3px;
+	font-size: 14px;
+	-webkit-column-count : 4;
+	-moz-column-count : 4;
+	
 }
+
+#faq {
+	padding : 0px 40px;
+}
+
+#tabs a:hover {
+	border-bottom: 1px dashed #FFFFFF !important;
+	color : black !important;
+}
+
+
+	
+
+
+
