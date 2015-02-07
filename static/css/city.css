@@ -23,6 +23,10 @@ a {
     text-decoration: none !important;
 }
 
+a:visited{
+    color:white;
+}
+
 a:hover {
     color: #F04848 !important;
     border-bottom: 1px dashed #F04848 !important;
@@ -62,6 +66,7 @@ panel p {
 
 #current-list-filter-input {
     border: 1px solid black;
+    width: 100%;
 }
 
 .list-cell {

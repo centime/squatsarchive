@@ -27,6 +27,25 @@
         <script src="../static/js/city.js"></script>
         <script src="../static/js/media-page.js"></script>
 
+
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//vps86737.ovh.net/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//vps86737.ovh.net/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
+
+        
+
         <script id="current-list-template" type="text/x-handlebars-template">
             <div class="current-list" style="display: table;">
                 <div class="heading" style="display: table-header-group;">
@@ -45,33 +64,11 @@
                                     <a href="#" class="view-squat" data-cartodbid="{{cartodb_id}}">
                                         {{_01_name_of_squat}}
                                     </a>
-                                </div>
-                                <div class="list-cell">
-                                    {{_02_address}}
-                                </div>
-                            {{/with}}
-                        </div>
-                    {{/each}}
-                </div>
-            </div>
-        </script>
-
-        <script id="list-template" type="text/x-handlebars-template">
-            <div class="have-you-seen-list" style="display: table;">
-                <div class="heading" style="display: table-header-group;">
-                    <div class="list-cell">
-                        Nom
-                    </div>
-                    <div class="list-cell">
-                        Adresse
-                    </div>
-                </div>
-                <div style="display: table-row-group;">
-                    {{#each places}}
-                        <div style="display: table-row;">
-                            {{#with this.properties}}
-                                <div class="list-cell">
-                                    {{_01_name_of_squat}}
+                                    {{#if _07_media}}
+                                        <a href="#{{_07_media}}">
+                                        (+)
+                                        </a>
+                                    {{/if}}
                                 </div>
                                 <div class="list-cell">
                                     {{_02_address}}
@@ -87,53 +84,60 @@
             <div class="place-popup-content">
                 
                 {{#with place.properties}}
-                    <h2>{{_01_name_of_squat}}</h2>
-
-                    <p>{{_02_address}}</p>
-                    {{#if _03_presentation }}
-                        <p>Presentation du lieu : {{ _03_presentation }}</p>
+                    {{#if _07_media }}
+                        <a href="#{{_07_media}}">
                     {{/if}}
-                    {{#if _030_photo }}
-                        <p><img src="{{ _030_photo }}" style="width:280px"></img></p>
+                        <h2>{{_01_name_of_squat}}</h2>
+                        <p>{{_02_address}}</p>
+                        {{#if _03_presentation }}
+                            <p>Presentation du lieu : {{ _03_presentation }}</p>
+                        {{/if}}
+                        {{#if _030_photo }}
+                            <p><img src="{{ _030_photo }}" style="width:280px"></img></p>
+                        {{/if}}
+                        {{#if _04_social_activities }}
+                            <p>Activités sociales : {{ _04_social_activities }}</p>
+                        {{/if}}
+                        {{#if _05_cultural_activities }}
+                            <p>Activités culturelles : {{ _05_cultural_activities }}</p>
+                        {{/if}}
+                        {{#if _06_political_activities }}
+                            <p>Activités militantes : {{ _06_political_activities }}</p>
+                        {{/if}}
+                        {{#if _08_building_type }}
+                            <p>Type de batiment : {{ _08_building_type }}</p>
+                        {{/if}}
+                        {{#if _formated_opening_date }}
+                            <p>Date d ouverture : {{ _formated_opening_date }}</p>
+                        {{/if}}
+                        {{#if _formated_eviction_date }}
+                            <p>Expulsion : {{ _formated_eviction_date }}</p>
+                        {{/if}}
+                        {{#if _11_occupation_duration }}
+                            <p>Duree d occupation : {{ _11_occupation_duration }}</p>
+                        {{/if}}
+                        {{#if _12_eviction_motives }}
+                            <p>Motifs d expulsions : {{ _12_eviction_motives }}</p>
+                        {{/if}}
+                        {{#if _13_trial_verdict }}
+                            <p>Rendu du jugement : {{ _13_trial_verdict }}</p>
+                        {{/if}}
+                        {{#if _formated_evictability_date }}
+                            <p>Date d expulsabilité : {{ _formated_evictability_date }}</p>
+                        {{/if}}
+                        {{#if _15_ownership }}
+                            <p>Proprietaire : {{ _15_ownership }}</p>
+                        {{/if}}
+                        {{#if _16_use_since_eviction }}
+                            <p>Usage du lieu depuis l expulsion : {{ _16_use_since_eviction }}</p>
+                        {{/if}}
+                    {{#if _07_media}}
+                        </a>
                     {{/if}}
-                    {{#if _04_social_activities }}
-                        <p>Activités sociales : {{ _04_social_activities }}</p>
-                    {{/if}}
-                    {{#if _05_cultural_activities }}
-                        <p>Activités culturelles : {{ _05_cultural_activities }}</p>
-                    {{/if}}
-                    {{#if _06_political_activities }}
-                        <p>Activités militantes : {{ _06_political_activities }}</p>
-                    {{/if}}
-                    {{#if _07_web_page }}
-                        <p><a href="{{ _07_web_page }}" target="_blank">Page web</a></p>
-                    {{/if}}
-                    {{#if _08_building_type }}
-                        <p>Type de batiment : {{ _08_building_type }}</p>
-                    {{/if}}
-                    {{#if _formated_opening_date }}
-                        <p>Date d ouverture : {{ _formated_opening_date }}</p>
-                    {{/if}}
-                    {{#if _formated_eviction_date }}
-                        <p>Expulsion : {{ _formated_eviction_date }}</p>
-                    {{/if}}
-                    {{#if _11_occupation_duration }}
-                        <p>Duree d occupation : {{ _11_occupation_duration }}</p>
-                    {{/if}}
-                    {{#if _12_eviction_motives }}
-                        <p>Motifs d expulsions : {{ _12_eviction_motives }}</p>
-                    {{/if}}
-                    {{#if _13_trial_verdict }}
-                        <p>Rendu du jugement : {{ _13_trial_verdict }}</p>
-                    {{/if}}
-                    {{#if _formated_evictability_date }}
-                        <p>Date d expulsabilité : {{ _formated_evictability_date }}</p>
-                    {{/if}}
-                    {{#if _15_ownership }}
-                        <p>Proprietaire : {{ _15_ownership }}</p>
-                    {{/if}}
-                    {{#if _16_use_since_eviction }}
-                        <p>Usage du lieu depuis l expulsion : {{ _16_use_since_eviction }}</p>
+                    {{#if _links }}
+                        {{#each _links}}
+                            <p><a href="{{ this }}">{{ this }}</a></p>
+                        {{/each}}
                     {{/if}}
                 {{/with}}
             </div>

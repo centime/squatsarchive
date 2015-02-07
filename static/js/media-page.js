@@ -15,7 +15,8 @@ function writeList(articles){
 
 function writeArticle(md){
     // md to html
-    var html = marked(md);
+    m = md;
+    html = marked(md);
     // Change links from relative to absolute
     var content = $('<div>').html(html);
     var rawURL = 'https://raw.githubusercontent.com/'+GITHUB_USER+'/'+GITHUB_REPO+'/master/';
@@ -60,8 +61,10 @@ function route(){
     if (squat === ''){
         $('media').hide();
         $('panel').show();
+        $('.leaflet-popup-pane').show();
     }else{
         $('panel').hide();
+        $('.leaflet-popup-pane').hide();
         $('media').show();
         $('#media-squat').text(squat);
         $('#page-content').text('Loading...');
@@ -71,5 +74,8 @@ function route(){
 $(window).on('hashchange', route);
 
 $(document).ready(function () {
+    marked.setOptions({
+      sanitize: true,
+    });
     route();
 });

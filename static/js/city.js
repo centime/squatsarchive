@@ -65,6 +65,9 @@
                         featureData.properties._formated_eviction_date = featureData.properties._10_eviction_date ? featureData.properties._10_eviction_date.toString().split('T')[0] : undefined;
                         featureData.properties._formated_opening_date = featureData.properties._09_opening_date ? featureData.properties._09_opening_date.toString().split('T')[0] : undefined;
 
+                        // links string list to array
+                        featureData.properties._links = featureData.properties._17_links ? featureData.properties._17_links.split(' ') : [];
+
                         // precompile
                         var source = $('#popup-template').html();
                         var template = Handlebars.compile(source);
@@ -161,20 +164,6 @@ function getQueryUrl(query) {
 }
 
 
-function addHaveYouSeenList() {
-    var query = 'SELECT * ' +
-        'FROM '+CARTODB_DB+' ' +
-        'ORDER BY _01_name_of_squat';
-
-    $.getJSON(getQueryUrl(query), function (data) {
-        var source = $('#list-template').html();
-        var template = Handlebars.compile(source);
-        $('#have-you-seen-list-wrapper').html(template({
-            places: data.features,
-        }));
-    });
-}
-
 
 function showCurrentList(list) {
     var source = $('#current-list-template').html();
@@ -238,7 +227,6 @@ Handlebars.registerHelper('urlize', function (text) {
 $(document).ready(function () {
     $('#map').freespacemap({});
     addCurrentList();
-    addHaveYouSeenList();
     useFullHeight();
     initCity();
 });
