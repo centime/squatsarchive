@@ -19,8 +19,8 @@
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
         <![endif]-->
+        <link rel="stylesheet" href="../static/css/style.css" />
         <link rel="stylesheet" href="../static/css/city.css" />
-		<link rel="stylesheet" href="static/css/charte.css" />
 
         <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 
@@ -146,10 +146,10 @@
     </head>
 
     <body>
-        <map id="map"></map>
-        <panel>
+        <div id="map"></div>
+        <div id="panel">
             <div id="header">
-                <h1 id="city-name" style="margin-top:6px;margin-bottom:6px;">[City - please enable javascrip]</h1>
+                <h1 id="city-name">[City - please enable javascrip]</h1>
                 <p>
                     <a href="../">Squats Archive</a> est un projet de carte historique des squats s'étant fait expulser.
                 </p>
@@ -159,7 +159,7 @@
             </div>
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#home" data-toggle="tab">Squats</a>
+                    <a href="#squats-list" data-toggle="tab">Squats</a>
                 </li>
                 <li>
                     <a href="#add-info" data-toggle="tab">Ajouter des infos</a>
@@ -170,7 +170,7 @@
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane active" id="home">
+                <div class="tab-pane active" id="squats-list">
                     <p>
                         <input id="current-list-filter-input" placeholder="Rechercher un squat..." type="text" name="filter" />
                     </p>
@@ -218,14 +218,14 @@
                     </p>
                 </div>
             </div>
-        </panel>
-        <media>
+        </div>
+        <div id="media">
             <div>
-                Media page : <span id="media-squat"></span>
-                <a href="#" id="close">return to the map</a>
+                Media page : <span id="media-squat-name"></span>
+                <a href="#" id="media-close">return to the map</a>
             </div>
-            <div id="page-content"></div>
-        </media>
+            <div id="media-content"></div>
+        </div>
     </body>
 
 </html>

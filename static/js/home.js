@@ -134,22 +134,16 @@ var MAP_ZOOM = 5 ;
 
 })(window, jQuery);
 
-// function useFullHeight() {
-//     var availableHeight = $(window).height() - $('header').outerHeight() - $('#tabs').outerHeight();
-//     $('main').outerHeight(availableHeight);
-//     $('#map').outerHeight(availableHeight);
-// }
 
 function setCoverHeight(){
-    var h = $(window).height() - $('header').height() - 10;
-    $('.cover').each( function(){ $(this).height(h) ;});
+    var h = $(window).height() - $('header').outerHeight() - 170;
+    $('.cover').each( function(){ $(this).outerHeight(h) ;});
 }
 
 
 $(document).ready(function () {
     $('#map').freespacemap({});
     setCoverHeight();
-    //useFullHeight();  
 });
 
 

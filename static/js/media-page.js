@@ -1,10 +1,10 @@
 function writeList(articles){
-    $('#page-content').html($('<ul>'));
+    $('#media-content').html($('<ul>'));
     for (var i in articles){
         var fileName = articles[i].name;
         if (fileName.substr(-3) === '.md'){
             squatName = fileName.slice(0,-3);
-            $('#page-content ul').append(
+            $('#media-content ul').append(
                 $('<li>').append(
                     $('<a>',{href:'#'+squatName, text: squatName})
                 )
@@ -28,11 +28,11 @@ function writeArticle(md){
         }
     });
     // append
-    $('#page-content').html(content.html());
+    $('#media-content').html(content.html());
 }
 
 function fetchFail(){
-    $('#page-content').text('Sorry, we didn\'t find the squat you\'re looking for !\n Go and open it!');
+    $('#media-content').text('Sorry, we didn\'t find the squat you\'re looking for !\n Go and open it!');
 }
 
 function fetch(squat){
@@ -59,15 +59,15 @@ function fetch(squat){
 function route(){
     var squat = window.location.hash.substr(1);
     if (squat === ''){
-        $('media').hide();
-        $('panel').show();
+        $('#media').hide();
+        $('#panel').show();
         $('.leaflet-popup-pane').show();
     }else{
-        $('panel').hide();
+        $('#panel').hide();
         $('.leaflet-popup-pane').hide();
-        $('media').show();
-        $('#media-squat').text(squat);
-        $('#page-content').text('Loading...');
+        $('#media').show();
+        $('#media-squat-name').text(squat);
+        $('#media-content').text('Loading...');
         fetch(squat);
     }
 }

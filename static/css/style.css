@@ -1,0 +1,49 @@
+/*
+ * reset
+ */
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+    
+body {
+    color:white;
+    background-color: black;
+    font-family: Helvetica;
+    height: 100%;
+    width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    border-bottom: 1px solid white;
+    color: white;
+    text-decoration: none !important;
+}
+
+
+a:hover {
+    color: #F04848 !important;
+    border-bottom: 1px dashed #F04848 !important;
+}
+
+a:visited{
+    color:white;
+}
+a:active{
+    color: white;
+}
+.nav-tabs a:hover {
+    color:black !important;
+    border-bottom: 0px !important;
+}
+
+

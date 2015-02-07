@@ -207,10 +207,9 @@ function addCurrentList() {
 }
 
 
-function useFullHeight() {
-    var availableHeight = $(window).height() - $('header h1').outerHeight() - 40;
-    $('main').outerHeight(availableHeight);
-    $('#map').outerHeight(availableHeight);
+function setContentHeight() {
+    var availableHeight = $(window).height() - $('#header').outerHeight() - $('.nav-tabs').outerHeight() -30;
+    $('.tab-content').outerHeight(availableHeight);
 }
 
 
@@ -227,21 +226,13 @@ Handlebars.registerHelper('urlize', function (text) {
 $(document).ready(function () {
     $('#map').freespacemap({});
     addCurrentList();
-    useFullHeight();
+    setContentHeight();
     initCity();
 });
 
 
-$(window).smartresize(useFullHeight);
+$(window).smartresize(setContentHeight);
 
-
-// To fix..
-var visible = true ;
-function togglePanel () { 
-    var panel = $("panel") ;
-    if (visible){ panel.hide("slow"); visible = false}
-    else { panel.show("slow"); visible = true}
-}
 
 function initCity(){
     // Name

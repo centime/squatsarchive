@@ -1,0 +1,45 @@
+/*
+ * reset
+ */
+
+
+#map { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 100% !important; 
+    width: 100%; 
+    z-index:-1;
+}
+#header {
+    background-color: rgba(125,125,125,0.5);
+    top: 0px;
+    right: 0px;
+    color:white;
+}
+.cover {
+    overflow: auto;
+	background-color : rgba(125,125,125,0.5);
+	padding : 15px;
+	margin : 30px;
+	border-radius: 3px;
+	-webkit-column-count : 2;
+	-moz-column-count : 2;
+	
+}
+
+#faq {
+	padding : 0px 40px;
+}
+#title{
+    display:inline;
+}
+#langage{
+    position:absolute;
+    right:20px;
+    top:20px
+}
+	
+
+
+

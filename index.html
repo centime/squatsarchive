@@ -18,8 +18,8 @@
         <script src="static/js/home.js"></script>
 
         <link rel="stylesheet" href="static/js/lib/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="static/css/main.css" />
-		<link rel="stylesheet" href="static/css/charte.css" />
+        <link rel="stylesheet" href="static/css/style.css" />
+        <link rel="stylesheet" href="static/css/home.css" />
 
 
         <!-- Piwik -->
@@ -42,16 +42,16 @@
     </head>
 
     <body>
-        <map id="map"></map>
-        <header>
+        <div id="map"></div>
+        <div id="header">
             <div>
-                <h1 style="display:inline">Squats Archive</h1>
-                <span style="position:absolute;right:20px;top:20px">
+                <h1 id="title">Squats Archive</h1>
+                <span id="langage">
                     <a href="fr">fr</a>
                     <a href="en">en</a>
                 </span>
             </div>
-            <ul id="tabs" class="nav nav-tabs">
+            <ul class="nav nav-tabs">
                 <li class="active"><a href="#europe" data-toggle="tab">Europe</a></li>
                 <li><a href="#why" data-toggle="tab">Pourquoi archiver ?</a></li>
                 <li><a href="#faq" data-toggle="tab">FAQ</a></li>
@@ -59,7 +59,7 @@
                 <li><a href="#add-a-city" data-toggle="tab">Ajouter une ville</a></li>
                 <li><a href="#manage-a-city" data-toggle="tab">Gerer les archives d'une ville</a></li>
             </ul>
-        </header>
+        </div id="header">
         <main class="tab-content">
                     <div class="tab-pane active uncover" id="europe">
                     </div>
@@ -78,7 +78,7 @@
                         </p>
 
                         <p>
-                            Ce projet doit tout à son parent : London Squats Archive.
+                            Ce projet doit tout à son parent : <a href="http://http://londonsquatsarchive.org/">London Squats Archive</a>.
                         </p>
                     </div>      
                     
